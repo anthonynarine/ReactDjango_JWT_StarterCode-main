@@ -6,9 +6,12 @@ from authentication.models import User
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.CharField(max_length=250)
+    text = models.TextField()
     video_id = models.CharField(max_length=250)
-    text = models.CharField(max_length=250)
-    likes = models.IntegerField()
-    dislikes = models.IntegerField()
+    # likes = models.IntegerField()
+    # dislikes = models.IntegerField()
 
+
+#Code below shold rename  db in M
+class Meta:
+    db_table = "comments"
