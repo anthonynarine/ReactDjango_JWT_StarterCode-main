@@ -20,7 +20,7 @@ def get_all_comments(request):
 #function to get + post all comment(s) from + to a specific video from a logged in user
 @api_view([ "GET", "POST" ])
 @permission_classes([IsAuthenticated])
-def get_user_comments (request, video_id):
+def get_video_comments (request, video_id):
     # print(
     #     "User", f"{request.user.id} {request.user.email} {request.user.username}")
     
