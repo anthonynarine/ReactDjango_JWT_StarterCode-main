@@ -8,10 +8,10 @@ from .serializers import CommentSerializer
 
 # Create your views here.
 
-#function to get all comments from a specific video using the video id
+# function to get all comments from a specific video using the video id
 @api_view(["GET"])
 @permission_classes([AllowAny])
-def get_comments_by_video_id(request, video_id):
+def get_all_comments(request):
     comments = Comment.objects.all()
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
@@ -19,10 +19,10 @@ def get_comments_by_video_id(request, video_id):
 
 #function to get + post all comment(s) from + to a specific video from a logged in user
 @api_view([ "GET", "POST" ])
-@permission_classes([])
-def post_user_comments (request):
-    print(
-        "User", f"{request.user.id} {request.user.email} {request.user.username}")
+@permission_classes([IsAuthenticated])
+def get_user_comments (request, video_id):
+    # print(
+    #     "User", f"{request.user.id} {request.user.email} {request.user.username}")
     
     if request.method == "POST":
         serializer = CommentSerializer(data=request.data)
@@ -32,10 +32,7 @@ def post_user_comments (request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     elif request.method == "GET":
-        comments = Comment.objects.filter(user_id=request.user_id)
+        comments = Comment.objects.filter(video_id=video_id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
-    
-
-    
-
+     
