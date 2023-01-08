@@ -65,8 +65,7 @@ const RegisterPage = () => {
           />
         </label>
         <p style={{ fontSize: "12px" }}>
-          NOTE: Make this an uncommon password with characters, numbers, and
-          special characters!
+          NOTE: Password must contain characters, numbers and a special character. 
         </p>
         <button>Register!</button>
       </form>

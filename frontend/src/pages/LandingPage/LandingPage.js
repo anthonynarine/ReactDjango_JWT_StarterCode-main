@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DATA } from "../../data";
+import { DATA } from "../../components/LocalData/LocalData";
+
 
 import { KEY } from "../../localKey";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import VideoMapper from "../../components/VideoMapper/VideoMapper";
+// import VideoMapper from "../../components/VideoMapper/VideoMapper";
 
 const LandingPage = (props) => {
   const [videoSearch, setvideoSearch] = useState(DATA[0]["items"]);
@@ -24,7 +25,7 @@ const LandingPage = (props) => {
     try {
         console.log(search)
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}&type=video&part=snippet&maxResults=7`
+        `https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}&type=video&part=snippet&maxResults=5`
       );
       
     //   console.log(response.data.items)
@@ -42,7 +43,7 @@ const LandingPage = (props) => {
       <div>
       <SearchBar fetchVideos={fetchVideos} search={search} setSearch={setSearch}/>
         <div>
-        <VideoMapper videos={videoSearch} />
+        {/* <VideoMapper videos={videoSearch} /> */}
         </div>
       </div>
     </div>
