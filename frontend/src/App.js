@@ -19,6 +19,8 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         {/* <Route
           path="/"
           element={
@@ -27,8 +29,6 @@ function App() {
             </PrivateRoute>
           }
         /> */}
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </div>
