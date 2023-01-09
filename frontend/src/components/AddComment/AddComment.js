@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 
-const AddCommentPage = ({videoId}) => {
+const AddComment = ({videoId}) => {
   const [user, token] = useAuth();
   const navigate = useNavigate;
   let formValues = {
@@ -53,4 +53,4 @@ const AddCommentPage = ({videoId}) => {
   );
 };
 
-export default AddCommentPage;
+export default AddComment;

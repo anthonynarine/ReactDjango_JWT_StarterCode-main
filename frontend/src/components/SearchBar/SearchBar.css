@@ -1,14 +1,16 @@
-.search-bar {
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    padding: 10px;
+.searchbar {
+    width: 40rem;
+    margin: auto;
+    text-align: center;
 }
 
-.search-bar{
+.searchmessage {
+    width: 100%;
+    text-align: center;
+}
+
+.searchbarform{
     display: flex;
-    flex-direction: column;
-}
-
-.label {
-    padding-right: 8px;
+    justify-content: center;
+    align-items: center;
 }
